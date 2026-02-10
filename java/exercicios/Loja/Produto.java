@@ -12,7 +12,7 @@ public class Produto {
     }
 
     void exibirInformacoes() {
-        System.out.println("Nome: " + nome + " | Preço: R$ " + preco + " | Estoque: " + quantidade);
+        System.out.println("Nome: " + this.nome + " | Preço: R$ " + this.preco + " | Estoque: " + this.quantidade);
     }
 
     void adicionarEstoque(int qtd) {
