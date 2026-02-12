@@ -1,6 +1,6 @@
 package exercicios.FrotaTech;
 
-public class Caminhao extends Veiculo{
+public class Caminhao extends Veiculo implements Tributavel{
     private int eixos;
 
     public Caminhao(String marca, String modelo, String placa, int eixos){
@@ -24,5 +24,9 @@ public class Caminhao extends Veiculo{
     @Override
     public String toString() {
         return super.toString() + " | Eixos: " + this.eixos;
+    }
+    @Override
+    public double calcularIPVA() {
+        return this.getEixos() * 500.0;
     }
 }

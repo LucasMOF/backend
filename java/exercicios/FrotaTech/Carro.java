@@ -1,6 +1,6 @@
 package exercicios.FrotaTech;
 
-public class Carro extends Veiculo{
+public class Carro extends Veiculo implements Tributavel{
 
     public Carro(String marca, String modelo, String placa){
         super(marca, modelo, placa);
@@ -9,5 +9,9 @@ public class Carro extends Veiculo{
     @Override
     public double calcularPedagio(){
         return 7.00;
+    }
+    @Override
+    public double calcularIPVA() {
+        return 1000.0;
     }
 }

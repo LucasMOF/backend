@@ -1,6 +1,6 @@
 package exercicios.FrotaTech;
 
-public class Veiculo {
+public abstract class Veiculo {
     private String marca;
     private String modelo;
     private String placa;
@@ -35,9 +35,7 @@ public class Veiculo {
         this.placa = placa;
     }
 
-    public double calcularPedagio() {
-        return 0.00;
-    }
+    public abstract double calcularPedagio();
 
     public String toString(){
         return "Marca: " + this.marca + " | Modelo: "

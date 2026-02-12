@@ -43,10 +43,21 @@ public class Frota {
                 System.out.println("Adicionar placa do caminhão: ");
                 String placaCaminao = leitor.nextLine();
 
-                System.out.println("Adicionar eixos do caminhão: ");
-                int eixos = leitor.nextInt();
-                leitor.nextLine();
+                int eixos = 0;
+                boolean entradaValida = false;
 
+                while (!entradaValida) {
+                    try {
+                        System.out.println("Adicionar eixos do caminhão (digite um número): ");
+                        eixos = leitor.nextInt();
+                        leitor.nextLine();
+                        entradaValida = true;
+
+                    } catch (java.util.InputMismatchException e) {
+                        System.out.println("ERRO: Você digitou texto! Por favor, digite apenas números inteiros.");
+                        leitor.nextLine();
+                    }
+                }
                 Caminhao caminhao = new Caminhao(marcaCaminao, modeloCaminao, placaCaminao, eixos);
                 frota.add(caminhao);
 
@@ -76,6 +87,12 @@ public class Frota {
                         totalArrecadado += totalIndividual;
 
                         System.out.println((i + 1) + "- " + veiculo);
+                        if (veiculo instanceof Tributavel) {
+                            Tributavel t = (Tributavel) veiculo;
+                            System.out.printf("[IPVA Devido: R$ %.2f] \n", t.calcularIPVA());
+                        } else {
+                            System.out.println("   [Isento de IPVA]");
+                        }
                         System.out.println("---------------------");
                     }
                     System.out.printf("Valor Total acumulado no pegagio: %.2f \n\n"
