@@ -18,21 +18,21 @@ public class Arena {
         System.out.println("=== COMEÇAR BATALHA ===");
 
 
-            for (Personagem p : personagems) {
-                Personagem alvo;
+        for (Personagem p : personagems) {
+            Personagem alvo;
 
-                if (p instanceof Dragao) {
-                    alvo = g;
-                } else {
-                    alvo = d;
-                }
-                System.out.println(p.atacar(alvo));
-
-                if (p instanceof Mistico) {
-                    Mistico mago = (Mistico) p;
-                    mago.lancarMagia(alvo);
-                }
-
+            if (p instanceof Dragao) {
+                alvo = g;
+            } else {
+                alvo = d;
             }
+            System.out.println(p.atacar(alvo));
+
+            if (p instanceof Mistico) {
+                Mistico mago = (Mistico) p;
+                mago.lancarMagia(alvo);
+            }
+
         }
+    }
 }
